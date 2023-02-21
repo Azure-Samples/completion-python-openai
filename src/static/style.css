@@ -1,0 +1,41 @@
+body {
+  background-color: white;
+  font-family: Arial;
+  color: black;
+}
+
+.box {
+  margin: 0 auto;
+  display: flex;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 500px;
+  height: 100px;
+}
+
+input[type=submit]:hover {
+  background-color: #2e80eb;
+}
+
+input[type=submit] {
+  background-color: #136ee6;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: center;
+}
+
+.indent {
+  text-indent: 50px;
+}
+
+.doubleindent {
+  text-indent: 100px;
+}
