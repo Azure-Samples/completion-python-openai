@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Python Open AI completions demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+    <link type="text/css" rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2> Python Open AI completions demo</h2>
+        <form method="POST">
+            <textarea id="box" name="text" type="text" rows="4"
+                cols="50">{{prompt}}</textarea>
+            <br>
+            <br>
+            <input type="submit" value="Ask">
+        </form>
+        <br>
+        {% if result %}
+        <h3>{{result}}</h3>
+        {% endif %}
+    </div>
+</body>
+
+</html>
