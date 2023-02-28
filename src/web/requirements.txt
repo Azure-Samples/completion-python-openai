@@ -1,0 +1,6 @@
+openai==0.26.*
+flask==2.2.*
+python-dotenv==0.21.*
+azure-core==1.26.*
+azure-identity==1.12.*
+uvicorn == 0.17.*

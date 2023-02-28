@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: completion-python-openai
+metadata:
+  template: completion-python-openai@0.0.1-beta
+services:
+  web:
+    project: src/web
+    host: appservice
+    language: py
