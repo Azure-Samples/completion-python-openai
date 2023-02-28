@@ -1,3 +1,6 @@
+
+
+
 # Project Name
 
 (short, 1-3 sentenced, description of the project)
@@ -11,6 +14,11 @@ This project framework provides the following features:
 * ...
 
 ## Getting Started
+
+
+```
+azd up
+```
 
 ### Prerequisites
 

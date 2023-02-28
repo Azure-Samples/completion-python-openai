@@ -23,12 +23,12 @@
             "label": "Web uvicorn launch",
             "detail": "Helper task--use 'Start Web' task to ensure environment is set up correctly",
             "type": "shell",
-            "command": "${workspaceFolder}/src/web/web_env/bin/uvicorn app --port 3000 --reload",
+            "command": "${workspaceFolder}/src/web/web_env/bin/python app.py --port 5000 --reload",
             "options": {
                 "cwd": "${workspaceFolder}/src/web/"
             },
             "windows": {
-                "command": "${workspaceFolder}/src/web/web_env/scripts/uvicorn app --port 3000 --reload"
+                "command": "${workspaceFolder}/src/web/web_env/scripts/python app.py --port 5000 --reload"
             },
             "presentation": {
                 "panel": "dedicated",

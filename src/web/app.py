@@ -32,7 +32,7 @@ def completions_demo():
 
     openai.api_type = "azure_ad"
     openai.api_key = token.token
-    openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT", None)
+    openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
     openai.api_version = "2022-12-01"
     response = openai.Completion.create(engine=model, prompt=prompt, max_tokens=256)
 
