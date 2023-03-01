@@ -15,6 +15,7 @@ This project framework provides the following features:
 
 ## Getting Started
 
+Install Azure Developer CLI: https://aka.ms/azure-dev/install
 
 ```
 azd up
