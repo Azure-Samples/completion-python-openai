@@ -61,7 +61,7 @@ module appServicePlan 'core/host/appserviceplan.bicep' = {
   }
 }
 
-module openAiAccount 'core/ai/openai-account.bicep' = {
+module openAiAccount 'core/ai/ai.bicep' = {
   scope: rg
   name: 'openai'
   params: {
@@ -107,3 +107,4 @@ module openAiRoleWeb 'core/security/role.bicep' = {
 output AZURE_LOCATION string = location
 output AZURE_TENANT_ID string = tenant().tenantId
 output AZURE_OPENAI_ENDPOINT string = openAiAccount.outputs.endpoint
+output WEB_URI string = web.outputs.uri
