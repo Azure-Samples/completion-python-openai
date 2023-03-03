@@ -9,7 +9,7 @@ param environmentName string
 @description('Primary location for all resources')
 param location string
 
-param openAiAccountName string = ''
+param cognitiveServicesAccountName string = ''
 param appServicePlanName string = ''
 param resourceGroupName string = ''
 param webServiceName string = ''
@@ -42,7 +42,7 @@ module web 'core/host/appservice.bicep' = {
     scmDoBuildDuringDeployment: true
     managedIdentity: true
     appSettings: {
-      AZURE_OPENAI_ENDPOINT: openAiAccount.outputs.endpoint
+      AZURE_OPENAI_ENDPOINT: cognitiveServices.outputs.endpoint
     }
   }
 }
@@ -61,11 +61,11 @@ module appServicePlan 'core/host/appserviceplan.bicep' = {
   }
 }
 
-module openAiAccount 'core/ai/ai.bicep' = {
+module cognitiveServices 'core/ai/cognitiveservices.bicep' = {
   scope: rg
   name: 'openai'
   params: {
-    name: !empty(openAiAccountName) ? openAiAccountName : '${abbrs.cognitiveServicesAccounts}${resourceToken}'
+    name: !empty(cognitiveServicesAccountName) ? cognitiveServicesAccountName : '${abbrs.cognitiveServicesAccounts}${resourceToken}'
     location: location
     tags: tags
     deployments: [
@@ -106,5 +106,5 @@ module openAiRoleWeb 'core/security/role.bicep' = {
 
 output AZURE_LOCATION string = location
 output AZURE_TENANT_ID string = tenant().tenantId
-output AZURE_OPENAI_ENDPOINT string = openAiAccount.outputs.endpoint
+output AZURE_OPENAI_ENDPOINT string = cognitiveServices.outputs.endpoint
 output WEB_URI string = web.outputs.uri
