@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Web",
+            "type": "dotenv",
+            "targetTasks": [
+                "Restore Web",
+                "Web uvicorn launch"
+            ],
+            "file": "${input:dotEnvFilePath}"
+        },
+        {
+            "label": "Restore Web",
+            "type": "shell",
+            "command": "azd restore --service web",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Web uvicorn launch",
+            "detail": "Helper task--use 'Start Web' task to ensure environment is set up correctly",
+            "type": "shell",
+            "command": "${workspaceFolder}/src/web/web_env/bin/python app.py --port 5000 --reload",
+            "options": {
+                "cwd": "${workspaceFolder}/src/web/"
+            },
+            "windows": {
+                "command": "${workspaceFolder}/src/web/web_env/scripts/python app.py --port 5000 --reload"
+            },
+            "presentation": {
+                "panel": "dedicated",
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "dotEnvFilePath",
+            "type": "command",
+            "command": "azure-dev.commands.getDotEnvFilePath"
+        }
+    ]
+}
